@@ -53,10 +53,18 @@ class DoublyLinkedList{
     } 
 
     deletionAtHead(){
+      let deletedVal;
         if(this.head == this.tail){
             this.head == null;
             this.tail == null;
+            this.size--;
+        }else{
+          deletedVal = this.head.data;
+          this.head = this.head.next;
+          this.head.prev = null;
+          this.size--;
         }
+        return deletedVal;
     }
 
 }
@@ -70,4 +78,8 @@ console.log(dll);
 dll.insertAtFront(30);
 console.log(dll);
 dll.insertAtTail(5);
+/*
 console.log(dll);
+console.log(`Deleted : ${dll.deletionAtHead()}`);
+console.log(dll);
+*/
