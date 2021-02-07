@@ -67,6 +67,23 @@ class DoublyLinkedList{
         return deletedVal;
     }
 
+    deleteAtTail(){
+      let deletedVal;
+      if(this.tail != null){
+        deletedVal = this.tail;
+        if(this.head == this.tail){
+           this.head = null;
+           this.tail = null;
+           this.size--;
+        }else{
+          this.tail = this.tail.prev;
+          this.tail.next = null;
+          this.size--
+        }
+      }
+      return deletedVal;
+    }
+
 }
 
 // insertion
@@ -77,9 +94,13 @@ dll.insertAtFront(20);
 console.log(dll);
 dll.insertAtFront(30);
 console.log(dll);
-dll.insertAtTail(5);
+
+// dll.insertAtTail(5);
 /*
 console.log(dll);
 console.log(`Deleted : ${dll.deletionAtHead()}`);
 console.log(dll);
 */
+
+console.log(dll.deleteAtTail());
+console.log(`Size : ${dll.size}`)
