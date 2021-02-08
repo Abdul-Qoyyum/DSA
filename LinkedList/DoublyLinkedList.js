@@ -84,6 +84,20 @@ class DoublyLinkedList{
       return deletedVal;
     }
 
+    search(value){
+      // get the current head value
+        let result;
+        let currentHead = this.head;
+        while(currentHead.next){
+           if(currentHead.data == value){
+               result = value;
+               break;
+           }
+           currentHead = currentHead.next;
+        }
+        return result;
+    }
+
 }
 
 // insertion
@@ -104,3 +118,5 @@ console.log(dll);
 
 console.log(dll.deleteAtTail());
 console.log(`Size : ${dll.size}`)
+console.log("Search for value");
+console.log(`Found : ${dll.search(70)}`);
