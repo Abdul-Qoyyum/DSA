@@ -19,7 +19,7 @@ class SinglyLinkedList{
       return this.size == 0;
     }
 
-    // insert operation
+// insert operation
     insert(value) {
         let node = new SinglyLinkedListNode(value);
         if(this.head){
@@ -107,7 +107,8 @@ sll1.insert(34);
 sll1.insert(2);
 //console.log(sll1);
 sll1.insert("Hello world");
-//console.log(sll1);
+sll1.insert(34);
+console.log(sll1);
 
 //sll1.remove("Hello world");
 //console.log(sll1);
@@ -117,9 +118,12 @@ let deletedVal = sll1.deletedAtHead();
 console.log(deletedVal);
 console.log(sll1);
 */
-
+/*
 if(sll1.search(34)){
   console.log("Found");
  }else{
   console.log("Not Found");
  }
+*/
+
+module.exports = SinglyLinkedList;

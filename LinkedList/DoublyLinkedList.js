@@ -47,10 +47,10 @@ class DoublyLinkedList{
            let temp = new DoublyLinkedListNode(value);
            temp.prev = this.tail;
            this.tail.next = temp;
-           this.tail = temp           
+           this.tail = temp;
         }
         this.size++;
-    } 
+    }
 
     deletionAtHead(){
       let deletedVal;
@@ -84,18 +84,28 @@ class DoublyLinkedList{
       return deletedVal;
     }
 
-    search(value){
+    findStartingHead(value){
       // get the current head value
-        let result;
         let currentHead = this.head;
         while(currentHead.next){
            if(currentHead.data == value){
-               result = value;
-               break;
+               return true;
            }
            currentHead = currentHead.next;
         }
-        return result;
+           return false;
+    }
+
+    findStartingTail(value){
+      //get the current tail value
+       let currentTail = this.tail;
+       while(currentTail.prev){
+        if(currentTail.data == value){
+         return true;
+        }
+        currentTail = currentTail.prev;
+       }
+         return false;
     }
 
 }
@@ -108,6 +118,8 @@ dll.insertAtFront(20);
 console.log(dll);
 dll.insertAtFront(30);
 console.log(dll);
+dll.insertAtFront(40);
+console.log(dll);
 
 // dll.insertAtTail(5);
 /*
@@ -117,6 +129,7 @@ console.log(dll);
 */
 
 console.log(dll.deleteAtTail());
-console.log(`Size : ${dll.size}`)
+console.log(`Size : ${dll.size}`);
 console.log("Search for value");
-console.log(`Found : ${dll.search(70)}`);
+console.log(`FoundStartHead : ${dll.findStartingHead(20)}`);
+console.log(`FoundStartTail : ${dll.findStartingTail(20)}`);
