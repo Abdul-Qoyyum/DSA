@@ -69,6 +69,10 @@ class BinarySearchTree{
      }
    }
 
+  /**
+  *helper function to
+  *find Min root
+  */
   findMinRoot(root){
    let minRoot;
     while(root.left){
@@ -83,6 +87,24 @@ class BinarySearchTree{
     return this.deleteRecursively(root, value);
   }
 
+
+  findNode(value){
+   let currentRoot = this._root;
+   let found = false;
+   while(currentRoot){
+    if(currentRoot.value > value){
+      currentRoot = currentRoot.left;
+    }else if(currentRoot.value < value){
+      currentRoot = currentRoot.right;
+    }else{
+      found = true;
+      break;
+    }
+   }
+   return found;
+  }
+
+
 }
 
 const BST = new BinarySearchTree();
@@ -94,3 +116,6 @@ BST.insert(400)
 console.log(BST);
 BST.remove(400);
 console.log(BST);
+console.log(BST.findNode(400)); //false
+console.log(BST.findNode(10)); //true
+
